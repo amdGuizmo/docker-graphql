@@ -37,12 +37,12 @@ jobs:
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker build -t amdguizmo/docker-graphql:NEW_VERSION .
+        docker build -t amdguizmo/docker-graphql:$NEW_VERSION .
         docker build -t amdguizmo/docker-graphql:latest .
         
     - name: Push the Docker image
       env:
         NEW_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        docker push amdguizmo/docker-graphql:NEW_VERSION
+        docker push amdguizmo/docker-graphql:$NEW_VERSION
         docker push amdguizmo/docker-graphql:latest
